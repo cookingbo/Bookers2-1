@@ -1,0 +1,19 @@
+<%= render 'info', user: @user %>
+<%= render 'books/form', book: @book %>
+
+<h2>Books</h2>
+
+<% @books.each do |book| %>
+<div>
+  <%= link_to user_path(@user.id) do %>
+    <%= image_tag @user.get_profile_image(100,100) %>
+  <% end %>
+
+  <p>Title</p>
+  <%= link_to book.title, book_path(book.id) %>
+
+  <p>Opinion</p>
+  <%= book.body %>
+<% end %>
+</div>
+
