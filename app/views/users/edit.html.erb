@@ -1,18 +1,33 @@
-<h2>User info</h2>
+<main>
+  <p id="notice"></p>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <h2>User info</h2>
+        <%= render 'error', user: @user %>
+        <%= form_with model: @user do |f| %>
+          <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: "form-control name" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :image%>
+            <%= f.file_field :profile_image, class: "form-control-file user_image", accept: "image/*" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :introduction%>
+            <%= f.text_area :introduction, class: "form-control introduction" %>
+          </div>
+          <div class="form-group">
+            <%= f.submit 'Update User', class: "btn btn-secondary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>
 
-<%= form_with model: @user do |f| %>
-<%= render 'error', user: @user %>
-  <div>
-    <label>Name</label><br>
-    <%= f.text_field :name %>
-  </div>
-  <div>
-    <label>Image</label><br>
-    <%= f.file_field :profile_image, accept: "image/*" %>
-  </div>
-  <div>
-    <label>Introduction</label><br>
-    <%= f.text_area :introduction %>
-  </div>
-    <%= f.submit 'Update User' %>
-<% end %>
+
+
+
+
